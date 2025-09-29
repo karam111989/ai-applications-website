@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إضافة تطبيق - تطبيقات الذكاء الاصطناعي</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .form-actions {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        
+        .btn-submit {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        .btn-reset {
+            background-color: #dc3545;
+            color: white;
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
+        }
+        
+        .error-message {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>إضافة تطبيق جديد</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="home.html">الرئيسية</a></li>
+            <li><a href="aboutus.html">من نحن</a></li>
+            <li><a href="apps.html">التطبيقات</a></li>
+            <li><a href="add_app.html">إضافة تطبيق</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <form id="add-app-form">
+            <div class="form-group">
+                <label for="app-name">اسم التطبيق *</label>
+                <input type="text" id="app-name" name="app-name" required>
+                <div class="error-message" id="app-name-error">يجب أن يحتوي على أحرف إنجليزية فقط بدون فراغات</div>
+            </div>
+
+            <div class="form-group">
+                <label for="company-name">اسم الشركة المطورة *</label>
+                <input type="text" id="company-name" name="company-name" required>
+                <div class="error-message" id="company-name-error">يجب أن يحتوي على أحرف إنجليزية فقط</div>
+            </div>
+
+            <div class="form-group">
+                <label for="website-url">الموقع الإلكتروني *</label>
+                <input type="url" id="website-url" name="website-url" required>
+                <div class="error-message" id="website-url-error">يجب إدخال رابط موقع صحيح</div>
+            </div>
+
+            <div class="form-group">
+                <label for="is-free">مجاني/غير مجاني *</label>
+                <select id="is-free" name="is-free" required>
+                    <option value="">اختر...</option>
+                    <option value="مجاني">مجاني</option>
+                    <option value="غير مجاني">غير مجاني</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="usage-field">مجال الاستخدام *</label>
+                <select id="usage-field" name="usage-field" required>
+                    <option value="">اختر...</option>
+                    <option value="Education">Education</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="E-Commerce">E-Commerce</option>
+                    <option value="Robotics">Robotics</option>
+                    <option value="Finance">Finance</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="app-description">شرح مختصر عن التطبيق *</label>
+                <textarea id="app-description" name="app-description" required></textarea>
+            </div>
+<div class="form-group">
+    <label>وسائط التطبيق</label>
+    <div class="media-upload-section">
+        <!-- تحميل الصورة -->
+        <div class="media-upload-group">
+            <label for="image-upload" class="media-upload-label">
+                <span>🖼️ تحميل صورة (Logo)</span>
+                <input type="file" id="image-upload" name="image-upload" accept="image/*" style="display: none;">
+                <small>PNG, JPG, GIF - الحد الأقصى 2MB</small>
+            </label>
+            <div id="image-preview" class="media-preview-container"></div>
+        </div>
+
+        <!-- تحميل الصوت -->
+        <div class="media-upload-group">
+            <label for="audio-upload" class="media-upload-label">
+                <span>🎵 تحميل ملف صوتي</span>
+                <input type="file" id="audio-upload" name="audio-upload" accept="audio/*" style="display: none;">
+                <small>MP3, WAV - الحد الأقصى 5MB</small>
+            </label>
+            <div id="audio-preview" class="media-preview-container"></div>
+        </div>
+
+        <!-- تحميل الفيديو -->
+        <div class="media-upload-group">
+            <label for="video-upload" class="media-upload-label">
+                <span>🎬 تحميل ملف فيديو</span>
+                <input type="file" id="video-upload" name="video-upload" accept="video/*" style="display: none;">
+                <small>MP4, AVI - الحد الأقصى 10MB</small>
+            </label>
+            <div id="video-preview" class="media-preview-container"></div>
+        </div>
+    </div>
+</div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-submit">إرسال</button>
+                <button type="reset" class="btn btn-reset">إعادة</button>
+            </div>
+            
+        </form>
+    </main>
+
+    <footer>
+        <p>© 2024 تطبيقات الذكاء الاصطناعي - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="myFunctions.js"></script>
+</body>
+</html>
