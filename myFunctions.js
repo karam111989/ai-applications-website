@@ -790,3 +790,15 @@ function initializeWebsite() {
     setupNavigation();
     enhanceWithJQuery(); // إضافة التحسينات
 }
+$(document).ready(function () {
+    $('#deployment-url').on('click', function (e) {
+        e.preventDefault(); // منع الانتقال الفوري للرابط
+
+        // عرض رسالة تأكيد قبل فتح الرابط
+        const userConfirmed = confirm("هل ترغب في فتح رابط النشر في نافذة جديدة؟");
+
+        if (userConfirmed) {
+            window.open('https://karam111989.github.io/ai-applications-website/', '_blank');
+        }
+    });
+});
